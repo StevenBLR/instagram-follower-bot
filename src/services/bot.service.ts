@@ -8,8 +8,8 @@ export default class BotService {
     usersToFollow: MediaRepositoryLikersResponseUsersItem[];
     constructor() {
         config();
-        this.user = process.env.USER;
-        this.password = process.env.PASS;
+        this.user = process.env.IG_USERNAME;
+        this.password = process.env.IG_PASSWORD;
         this.ig = new IgApiClient();
     }
 
