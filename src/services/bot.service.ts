@@ -58,12 +58,35 @@ export default class BotService {
     // feed.items() --> Posts de l'utilisateur
     const savedPosts = await this.ig.feed.saved().items();
     const likedPosts = await this.ig.feed.liked().items();
-    //console.log(likedPosts);
-    savedPosts.forEach((n) => {
+
+    console.log(
+      `==============================\n LIKED POSTS \n==============================`
+    );
+    let likedPostsCount = 0;
+    likedPosts.forEach((n) => {
       console.log(n.user.full_name);
-      console.log(n.caption.text);
+      console.log(n.caption?.text);
+      console.log(
+        "----------------------------------------------------------------------"
+      );
+      likedPostsCount++;
     });
-    //console.log(savedPosts);
+    console.log(`Nombre de posts sauvegardés = ${likedPostsCount}`);
+
+    console.log(
+      `==============================\n SAVED POSTS \n==============================`
+    );
+
+    let savedPostsCount = 0;
+    savedPosts.forEach((n) => {
+      console.log(n.user?.full_name);
+      console.log(n.caption?.text);
+      console.log(
+        "----------------------------------------------------------------------"
+      );
+      savedPostsCount++;
+    });
+    console.log(`Nombre de posts sauvegardés = ${savedPostsCount}`);
   }
 
   async login() {
